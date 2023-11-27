@@ -10,8 +10,10 @@
   font-size: $default-font-size;
   transform: skewX(-12deg);
 
-  & > * {
-    transform: skewX(12deg);
+  @include respond(tab-port) {
+    width: 100%;
+    padding: 4rem;
+    padding-left: 7rem;
   }
 
   &__shape {
@@ -54,5 +56,17 @@
   &:hover &__img {
     transform: translateX(-4rem) scale(1);
     filter: blur(3px) brightness(80%);
+  }
+
+  @include respond(phone) {
+    padding: 3rem;
+    transform: skewX(0);
+    & > * {
+      transform: skewX(0);
+    }
+  }
+
+  &__shape {
+    margin-right: 2rem;
   }
 }
